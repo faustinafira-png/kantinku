@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KantinKu - Kantin Sekolah Digital</title>
+<link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap)" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#beranda" class="logo">
+      <img src="assets/logo.png" alt="KantinKu" class="logo-img" onerror="this.style.display='none'">
+      <span>Kantin<em>Ku</em></span>
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="#beranda" class="nav-link active" data-nav>Beranda</a>
+      <a href="#menu" class="nav-link" data-nav>Menu</a>
+      <a href="#kategori" class="nav-link" data-nav>Kategori</a>
+      <a href="#tentang" class="nav-link" data-nav>Tentang</a>
+      <a href="#kontak" class="nav-link" data-nav>Kontak</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Cari">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="btn btn-primary" id="orderBtn">
+        Pesan Sekarang
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-search" id="mobileSearch">
+    <div class="container">
+      <input type="text" id="quickSearch" placeholder="Cari menu favoritmu...">
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>Temukan Makanan <span class="highlight">Favoritmu</span> Tanpa Harus Bingung</h1>
+      <p>Nikmati kemudahan memesan makanan sekolah sehat dan lezat hanya dalam beberapa klik. Hemat waktu istirahatmu untuk bersantai.</p>
+
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="heroSearch" placeholder="Cari ayam geprek, es teh...">
+        <button class="btn btn-orange" id="heroSearchBtn">Lihat Menu</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="assets/makanan-1.jpg" alt="Aneka makanan kantin sekolah">
+    </div>
+  </div>
+</section>
+
+<!-- KATEGORI -->
+<section class="section" id="kategori">
+  <div class="container">
+    <h2>Kategori Menu</h2>
+    <p class="subtitle">Pilih jenis hidangan yang kamu inginkan hari ini</p>
+
+    <div class="category-list" id="categoryList">
+      <button class="category-item" data-category="semua">
+        <span class="cat-icon">🍽️</span>
+        <span>Semua</span>
+      </button>
+      <button class="category-item" data-category="makanan-berat">
+        <span class="cat-icon">🍚</span>
+        <span>Makanan Berat</span>
+      </button>
+      <button class="category-item active" data-category="mie">
+        <span class="cat-icon">🍜</span>
+        <span>Mie</span>
+      </button>
+      <button class="category-item" data-category="minuman">
+        <span class="cat-icon">🥤</span>
+        <span>Minuman</span>
+      </button>
+      <button class="category-item" data-category="snack">
+        <span class="cat-icon">🍟</span>
+        <span>Snack</span>
+      </button>
+      <button class="category-item" data-category="dessert">
+        <span class="cat-icon">🍰</span>
+        <span>Dessert</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- BEST SELLER -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Paling Laris di Kantin</h2>
+      <a href="#menu" class="link-arrow">Lihat Semua <span>→</span></a>
+    </div>
+    <div class="card-grid" id="bestSellerGrid"></div>
+  </div>
+</section>
+
+<!-- RATING TERTINGGI -->
+<section class="section section-gray">
+  <div class="container">
+    <h2>Rating Tertinggi</h2>
+    <div class="rating-grid" id="ratingGrid"></div>
+  </div>
+</section>
+
+<!-- SEMUA MENU -->
+<section class="section" id="menu">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Semua Menu</h2>
+        <p class="subtitle">Jelajahi berbagai pilihan menu dari semua stan</p>
+      </div>
+
+      <div class="filters">
+        <select id="filterCategory">
+          <option value="semua">Semua Kategori</option>
+          <option value="makanan-berat">Makanan Berat</option>
+          <option value="mie">Mie</option>
+          <option value="minuman">Minuman</option>
+          <option value="snack">Snack</option>
+          <option value="dessert">Dessert</option>
+        </select>
+        <select id="filterSort">
+          <option value="rating">Rating Tertinggi</option>
+          <option value="harga-rendah">Harga Terendah</option>
+          <option value="harga-tinggi">Harga Tertinggi</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card-grid" id="allMenuGrid"></div>
+
+    <div class="load-more-wrap">
+      <button class="btn btn-outline" id="loadMoreBtn">Muat Lebih Banyak</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="kontak">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h3>KantinKu</h3>
+      <p>Solusi digital kantin sekolah untuk pengalaman makan yang lebih cepat, sehat, dan modern.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4 id="tentang">Tentang KantinKu</h4>
+      <ul>
+        <li><a href="#">SMA Negeri 1 Jakarta</a></li>
+        <li><a href="#">Visi &amp; Misi Kantin</a></li>
+        <li><a href="#">Sertifikasi Halal</a></li>
+        <li><a href="#">Info Nutrisi</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontak Kami</h4>
+      <ul class="footer-contact">
+        <li>✉️ kantinku@sekolah.sch.id</li>
+        <li>📞 +62 812-3456-7890</li>
+        <li>📍 Gedung B, Lantai 1</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ikuti Kami</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="YouTube">▶️</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© 2026 KantinKu School Canteen System. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Syarat &amp; Ketentuan</a>
+        <a href="#">Kebijakan Privasi</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
